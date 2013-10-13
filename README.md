@@ -7,6 +7,7 @@ The voters lists are not scraped yet as it need to make almost 36000 hits in the
 
 Look into your district election centers file, and find the codes for district, vdc, ward and center. The following code should bring the list of the people registered under that center. It also creates cache once it reads it from the website. 
 
+```python
 voters = Voters(68, 3037, 1, 7764)
 print voters.cache.filepath
 if not voters.cache.isPresent():
@@ -14,5 +15,6 @@ if not voters.cache.isPresent():
 	voters.prepare()
 for voter in voters.voters_list:
 	print voter['election_id'], voter['name'], voter['gender'], voter['father_name'], voter['mother_name']
+```
 
 run.py doesn't do anything now. It has code to scrape the centers and create csv from the cache files and you have to update the code to execute the functinos. 
